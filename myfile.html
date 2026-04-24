@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreshyJob — Crack Interviews. Build Confidence.</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --coral:       #D85A30;
+  --coral-light: #F0997B;
+  --coral-pale:  #FAECE7;
+  --coral-deep:  #993C1D;
+  --teal:        #1D9E75;
+  --teal-light:  #5DCAA5;
+  --teal-pale:   #E1F5EE;
+  --teal-deep:   #0F6E56;
+  --amber:       #EF9F27;
+  --amber-pale:  #FAEEDA;
+  --amber-deep:  #854F0B;
+  --purple:      #534AB7;
+  --purple-pale: #EEEDFE;
+  --purple-light:#AFA9EC;
+  --ink:         #2C2C2A;
+  --ink-mid:     #5F5E5A;
+  --ink-soft:    #888780;
+  --ink-pale:    #D3D1C7;
+  --parchment:   #F9F7F2;
+  --white:       #FFFFFF;
+  --font-d: 'Sora', sans-serif;
+  --font-b: 'DM Sans', sans-serif;
+  --r-sm: 8px; --r-md: 14px; --r-lg: 22px; --r-xl: 32px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);color:var(--ink);background:var(--parchment);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+ 
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5%,80px);background:rgba(249,247,242,.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(44,44,42,.08);transition:box-shadow .3s}
+nav.sc{box-shadow:0 2px 24px rgba(216,90,48,.1)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.lmark{width:36px;height:36px;background:var(--coral);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:800;color:#fff;font-size:18px;box-shadow:0 4px 12px rgba(216,90,48,.35);transition:transform .2s}
+.logo:hover .lmark{transform:rotate(-5deg) scale(1.06)}
+.lname{font-family:var(--font-d);font-weight:700;font-size:19px;color:var(--ink);letter-spacing:-.3px}
+.lname em{font-style:normal;color:var(--coral)}
+.nav-ul{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-ul a{font-size:14px;font-weight:500;color:var(--ink-mid);text-decoration:none;transition:color .2s}
+.nav-ul a:hover{color:var(--coral)}
+.ncta{background:var(--ink)!important;color:#fff!important;padding:9px 22px;border-radius:var(--r-sm);font-weight:600!important;font-size:14px!important;transition:background .2s,transform .2s!important}
+.ncta:hover{background:var(--coral)!important;transform:translateY(-1px)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.ham span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.3s}
+ 
+.hero{min-height:100vh;padding-top:68px;background:var(--parchment);position:relative;overflow:hidden;display:flex;align-items:center}
+.dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(44,44,42,.07) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%)}
+.g1{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle at 40% 40%,rgba(240,153,123,.22) 0%,transparent 70%);top:-80px;right:-80px;pointer-events:none}
+.g2{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(29,158,117,.14) 0%,transparent 70%);bottom:0;left:5%;pointer-events:none}
+.g3{position:absolute;width:200px;height:200px;background:var(--coral-pale);border-radius:60px;top:18%;left:-60px;transform:rotate(20deg);opacity:.7;pointer-events:none}
+.g4{position:absolute;width:120px;height:120px;background:var(--teal-pale);border-radius:50%;bottom:15%;right:8%;opacity:.8;pointer-events:none}
+ 
+.hero-in{max-width:1160px;margin:0 auto;padding:80px clamp(20px,5%,80px);display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;width:100%}
+ 
+.pill{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(216,90,48,.25);background:rgba(216,90,48,.06);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--coral-deep);letter-spacing:.3px;text-transform:uppercase;margin-bottom:22px;animation:fu .5s ease both}
+.pill .live{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:bl 2s infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.3}}
+ 
+h1.hero-h{font-family:var(--font-d);font-weight:800;font-size:clamp(38px,5vw,64px);line-height:1.08;letter-spacing:-1.5px;color:var(--ink);margin-bottom:22px;animation:fu .6s ease .08s both}
+h1.hero-h .ac{color:var(--coral);display:inline-block;position:relative}
+h1.hero-h .ac::after{content:'';position:absolute;bottom:4px;left:0;right:0;height:3px;background:var(--coral-light);border-radius:2px;opacity:.5}
+ 
+.hero-p{font-size:17px;color:var(--ink-mid);line-height:1.75;max-width:480px;margin-bottom:38px;animation:fu .6s ease .16s both}
+.ctar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px;animation:fu .6s ease .24s both}
+ 
+.bc{display:inline-flex;align-items:center;gap:8px;background:var(--coral);color:#fff;padding:15px 30px;border-radius:var(--r-md);font-family:var(--font-d);font-weight:700;font-size:15px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 6px 20px rgba(216,90,48,.35),0 2px 6px rgba(216,90,48,.2);transition:transform .2s,box-shadow .2s,background .2s}
+.bc:hover{transform:translateY(-2px);background:var(--coral-deep);box-shadow:0 10px 28px rgba(216,90,48,.4)}
+.bo{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ink);padding:15px 26px;border-radius:var(--r-md);font-family:var(--font-d);font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;border:1.5px solid var(--ink-pale);transition:all .2s}
+.bo:hover{border-color:var(--coral);color:var(--coral);background:var(--coral-pale)}
+ 
+.proof{display:flex;gap:24px;flex-wrap:wrap;animation:fu .6s ease .32s both}
+.pi{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--ink-mid)}
+.pd{width:6px;height:6px;border-radius:50%;background:var(--teal)}
+ 
+.hw{position:relative;animation:fu .7s ease .1s both}
+.hcard{background:var(--white);border-radius:var(--r-xl);padding:28px;border:1px solid rgba(44,44,42,.08);box-shadow:0 24px 64px rgba(44,44,42,.12),0 4px 16px rgba(44,44,42,.06);position:relative;overflow:hidden}
+.hcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--coral),var(--amber),var(--teal))}
+.ctop{display:flex;align-items:center;gap:10px;padding-bottom:18px;border-bottom:1px solid rgba(44,44,42,.06);margin-bottom:18px}
+.aav{width:40px;height:40px;background:var(--ink);border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:18px}
+.ct{font-family:var(--font-d);font-weight:700;font-size:14px;color:var(--ink)}
+.cs{font-size:12px;color:var(--ink-soft);margin-top:1px}
+.lb{margin-left:auto;display:flex;align-items:center;gap:5px;background:var(--teal-pale);color:var(--teal-deep);border-radius:100px;padding:4px 10px;font-size:11px;font-weight:600}
+.lb .d{width:5px;height:5px;border-radius:50%;background:var(--teal);animation:bl 2s infinite}
+.mq{background:var(--parchment);border-radius:var(--r-md) var(--r-md) var(--r-md) 4px;padding:14px 16px;font-size:13.5px;color:var(--ink);line-height:1.6;margin-bottom:12px;border:1px solid rgba(44,44,42,.07)}
+.ma{background:var(--ink);border-radius:var(--r-md) var(--r-md) 4px var(--r-md);padding:14px 16px;font-size:13px;color:rgba(255,255,255,.88);line-height:1.65;margin-bottom:16px;margin-left:16px}
+.sp{background:var(--parchment);border-radius:var(--r-md);padding:16px;border:1px solid rgba(44,44,42,.07)}
+.st{font-family:var(--font-d);font-weight:700;font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px}
+.sr{display:flex;align-items:center;gap:10px;margin-bottom:9px;font-size:13px}
+.sr:last-child{margin-bottom:0}
+.sl{color:var(--ink-mid);width:90px;font-weight:500;flex-shrink:0}
+.sk{flex:1;height:6px;background:var(--ink-pale);border-radius:100px;overflow:hidden}
+.sf{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--coral),var(--amber));transition:width 1.5s cubic-bezier(.4,0,.2,1)}
+.sf.t{background:linear-gradient(90deg,var(--teal),var(--teal-light))}
+.sn{font-family:var(--font-d);font-weight:700;font-size:13px;color:var(--ink);width:32px;text-align:right}
+ 
+.chip{position:absolute;background:var(--white);border-radius:var(--r-md);padding:9px 14px;box-shadow:0 8px 28px rgba(44,44,42,.14);font-size:12px;font-weight:600;display:flex;align-items:center;gap:7px;border:1px solid rgba(44,44,42,.07)}
+.c1{top:-16px;right:-18px;color:var(--teal-deep);animation:fy 3s ease-in-out infinite}
+.c2{bottom:30px;left:-32px;color:var(--coral-deep);animation:fy 4s ease-in-out infinite .6s}
+@keyframes fy{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+ 
+.nb{background:var(--ink);padding:52px clamp(20px,5%,80px)}
+.ni{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+.nv{font-family:var(--font-d);font-weight:800;font-size:44px;line-height:1;margin-bottom:6px;color:var(--coral-light)}
+.nl{font-size:13px;color:rgba(255,255,255,.55);font-weight:400}
+ 
+section.blk{padding:88px clamp(20px,5%,80px)}
+.si{max-width:1100px;margin:0 auto}
+.eye{display:inline-flex;align-items:center;gap:7px;background:var(--coral-pale);color:var(--coral-deep);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:16px}
+.eye.tl{background:var(--teal-pale);color:var(--teal-deep)}
+.eye.am{background:var(--amber-pale);color:var(--amber-deep)}
+.eye.pu{background:var(--purple-pale);color:var(--purple)}
+.sh{font-family:var(--font-d);font-weight:800;font-size:clamp(28px,3.5vw,44px);line-height:1.15;letter-spacing:-1px;color:var(--ink);margin-bottom:14px}
+.sh .co{color:var(--coral)} .sh .te{color:var(--teal)}
+.sp2{font-size:17px;color:var(--ink-mid);line-height:1.75;max-width:540px;margin-bottom:50px}
+ 
+.prob-bg{background:#fff}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+.pc{background:var(--parchment);border-radius:var(--r-lg);padding:32px 26px;border:1px solid rgba(44,44,42,.07);position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.pc:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(216,90,48,.1)}
+.pc::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
+.pc:nth-child(1)::before{background:var(--coral)}
+.pc:nth-child(2)::before{background:var(--amber)}
+.pc:nth-child(3)::before{background:var(--teal)}
+.pn{font-family:var(--font-d);font-weight:800;font-size:52px;line-height:1;margin-bottom:12px;opacity:.12;color:var(--ink)}
+.pname{font-family:var(--font-d);font-weight:700;font-size:18px;color:var(--ink);margin-bottom:8px}
+.pdesc{font-size:14px;color:var(--ink-mid);line-height:1.65}
+.pq{background:var(--ink);border-radius:var(--r-lg);padding:36px 40px;display:grid;grid-template-columns:3px 1fr;gap:24px;align-items:center}
+.qb{background:var(--coral);border-radius:2px}
+.qt{font-family:var(--font-d);font-size:18px;color:rgba(255,255,255,.85);line-height:1.7;font-weight:400}
+.qt strong{color:#fff}
+ 
+.feat-bg{background:var(--parchment)}
+.fg{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.fc{background:var(--white);border-radius:var(--r-lg);padding:26px 20px;border:1px solid rgba(44,44,42,.07);transition:all .3s;position:relative}
+.fc:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(44,44,42,.1);border-color:var(--coral-light)}
+.fc.hf{background:var(--coral);border-color:transparent}
+.fc.hf:hover{box-shadow:0 10px 32px rgba(216,90,48,.35)}
+.fi{font-size:28px;margin-bottom:14px;display:block}
+.fn{font-family:var(--font-d);font-weight:700;font-size:15px;color:var(--ink);margin-bottom:7px}
+.fc.hf .fn{color:#fff}
+.fd{font-size:13px;color:var(--ink-mid);line-height:1.6}
+.fc.hf .fd{color:rgba(255,255,255,.8)}
+.ftag{position:absolute;top:12px;right:12px;background:var(--coral-pale);color:var(--coral-deep);font-size:10px;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.4px;text-transform:uppercase}
+.fc.hf .ftag{background:rgba(255,255,255,.2);color:#fff}
+ 
+.how-bg{background:var(--white)}
+.sw{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.sw::after{content:'';position:absolute;top:36px;left:12%;right:12%;height:1.5px;background:repeating-linear-gradient(90deg,var(--coral-light) 0,var(--coral-light) 6px,transparent 6px,transparent 14px);z-index:0}
+.step{text-align:center;padding:0 16px;position:relative;z-index:1}
+.sc2{width:72px;height:72px;border-radius:50%;background:var(--coral-pale);border:2px solid var(--coral);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:var(--font-d);font-weight:800;font-size:22px;color:var(--coral);box-shadow:0 6px 20px rgba(216,90,48,.18)}
+.sn2{font-family:var(--font-d);font-weight:700;font-size:16px;color:var(--ink);margin-bottom:8px}
+.sd{font-size:13.5px;color:var(--ink-mid);line-height:1.6}
+ 
+.price-bg{background:var(--parchment)}
+.prgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:880px;margin:0 auto}
+.prc{background:var(--white);border-radius:var(--r-xl);padding:36px 28px;border:1.5px solid rgba(44,44,42,.08);position:relative;transition:transform .3s}
+.prc:hover{transform:translateY(-4px)}
+.prc.pop{background:var(--ink);border-color:transparent;transform:scale(1.04);box-shadow:0 24px 56px rgba(44,44,42,.3)}
+.prc.pop:hover{transform:scale(1.04) translateY(-4px)}
+.ptag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--coral);color:#fff;font-size:11px;font-weight:700;padding:4px 16px;border-radius:100px;white-space:nowrap;letter-spacing:.3px;box-shadow:0 4px 12px rgba(216,90,48,.35)}
+.ppl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--ink-soft);margin-bottom:12px}
+.prc.pop .ppl{color:rgba(255,255,255,.5)}
+.pp{font-family:var(--font-d);font-weight:800;font-size:52px;color:var(--ink);line-height:1}
+.prc.pop .pp{color:var(--coral-light)}
+.pc2{font-size:22px;vertical-align:top;margin-top:8px;display:inline-block}
+.pper{font-size:13px;color:var(--ink-soft);margin-bottom:28px;font-weight:400}
+.prc.pop .pper{color:rgba(255,255,255,.45)}
+.pfl{list-style:none;margin-bottom:28px}
+.pfl li{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:13.5px;color:var(--ink-mid);border-bottom:1px solid rgba(44,44,42,.05)}
+.prc.pop .pfl li{color:rgba(255,255,255,.7);border-bottom-color:rgba(255,255,255,.07)}
+.pfl li:last-child{border-bottom:none}
+.ck{color:var(--teal);font-size:15px;flex-shrink:0}
+.cx{color:var(--ink-pale);font-size:15px;flex-shrink:0}
+.pb{width:100%;padding:14px;border-radius:var(--r-md);font-family:var(--font-d);font-weight:700;font-size:14px;cursor:pointer;transition:all .2s;border:none;text-align:center;display:block;text-decoration:none}
+.pbo{border:1.5px solid var(--ink-pale);background:transparent;color:var(--ink)}
+.pbo:hover{border-color:var(--coral);color:var(--coral);background:var(--coral-pale)}
+.pbc{background:var(--coral);color:#fff;box-shadow:0 6px 18px rgba(216,90,48,.3)}
+.pbc:hover{background:var(--coral-deep);transform:translateY(-1px)}
+ 
+.testi-bg{background:var(--white)}
+.tg{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tc{background:var(--parchment);border-radius:var(--r-xl);padding:28px 26px;border:1px solid rgba(44,44,42,.07);transition:transform .3s;position:relative}
+.tc:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(44,44,42,.09)}
+.tqm{font-family:var(--font-d);font-size:64px;color:var(--coral-pale);line-height:1;position:absolute;top:14px;left:18px;font-weight:900}
+.tt{font-size:14.5px;color:var(--ink-mid);line-height:1.75;margin-bottom:20px;padding-top:22px;position:relative;z-index:1}
+.ta{display:flex;align-items:center;gap:12px}
+.tav{width:42px;height:42px;border-radius:50%;background:var(--coral);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:700;font-size:15px;flex-shrink:0}
+.tn{font-family:var(--font-d);font-weight:700;font-size:14px;color:var(--ink)}
+.tr{font-size:12px;color:var(--ink-soft)}
+.ts{color:var(--amber);font-size:13px;letter-spacing:1px;margin-bottom:12px}
+ 
+.ctabl{background:var(--ink);padding:96px clamp(20px,5%,80px);text-align:center;position:relative;overflow:hidden}
+.ctabl::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(216,90,48,.15) 0%,transparent 60%);top:-200px;left:-100px}
+.ctabl::after{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(29,158,117,.12) 0%,transparent 60%);bottom:-100px;right:5%}
+.ctain{position:relative;z-index:1}
+.ctah{font-family:var(--font-d);font-weight:800;font-size:clamp(28px,4vw,52px);color:#fff;margin-bottom:14px;line-height:1.15;letter-spacing:-1px}
+.ctah em{font-style:normal;color:var(--coral-light)}
+.ctap{font-size:17px;color:rgba(255,255,255,.6);margin-bottom:40px}
+.ctabs{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.bw{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);padding:16px 34px;border-radius:var(--r-md);font-family:var(--font-d);font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.2);transition:all .2s;border:none;cursor:pointer}
+.bw:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.25);color:var(--coral)}
+.bg2{display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(255,255,255,.8);padding:16px 26px;border-radius:var(--r-md);font-family:var(--font-d);font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid rgba(255,255,255,.2);transition:all .2s}
+.bg2:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.5);color:#fff}
+ 
+footer{background:#1C1C1A;padding:64px clamp(20px,5%,80px) 32px}
+.fi2{max-width:1100px;margin:0 auto}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07)}
+.fb p{font-size:14px;color:rgba(255,255,255,.45);line-height:1.75;margin-top:14px;max-width:270px}
+.fso{display:flex;gap:10px;margin-top:18px}
+.fso a{width:34px;height:34px;border-radius:var(--r-sm);background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);font-size:14px;text-decoration:none;font-weight:700;transition:all .2s}
+.fso a:hover{background:var(--coral);color:#fff}
+.fc2 h5{color:#fff;font-family:var(--font-d);font-weight:600;font-size:14px;margin-bottom:16px}
+.fc2 ul{list-style:none}
+.fc2 li{margin-bottom:9px}
+.fc2 a{color:rgba(255,255,255,.4);text-decoration:none;font-size:13.5px;transition:color .2s}
+.fc2 a:hover{color:var(--coral-light)}
+.fbot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12.5px;color:rgba(255,255,255,.3)}
+.fh{color:var(--coral)}
+ 
+.mov{display:none;position:fixed;inset:0;z-index:900;background:rgba(28,28,26,.7);backdrop-filter:blur(6px);align-items:center;justify-content:center}
+.mov.open{display:flex}
+.mb{background:var(--white);border-radius:var(--r-xl);padding:44px;max-width:440px;width:90%;position:relative;animation:mi .3s ease;border:1px solid rgba(44,44,42,.08);box-shadow:0 32px 80px rgba(44,44,42,.25)}
+@keyframes mi{from{opacity:0;transform:scale(.94) translateY(16px)}to{opacity:1;transform:none}}
+.mc{position:absolute;top:16px;right:20px;background:none;border:none;font-size:22px;color:var(--ink-soft);cursor:pointer;line-height:1;transition:color .2s}
+.mc:hover{color:var(--coral)}
+.mh{font-family:var(--font-d);font-weight:800;font-size:24px;color:var(--ink);margin-bottom:6px}
+.mp{font-size:14.5px;color:var(--ink-mid);margin-bottom:26px}
+.mf{display:flex;flex-direction:column;gap:12px}
+.mfi{padding:13px 15px;border:1.5px solid var(--ink-pale);border-radius:var(--r-sm);font-size:14px;font-family:var(--font-b);width:100%;outline:none;transition:border-color .2s;color:var(--ink);background:var(--white)}
+.mfi:focus{border-color:var(--coral)}
+.mn{font-size:11.5px;color:var(--ink-soft);text-align:center;margin-top:6px}
+.ms{display:none;text-align:center;padding:16px 0}
+.msi{font-size:52px;margin-bottom:12px}
+.msh{font-family:var(--font-d);font-weight:800;font-size:20px;color:var(--ink);margin-bottom:8px}
+.msp{font-size:14px;color:var(--ink-mid)}
+ 
+@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.rev{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.rev.v{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.18s}.d3{transition-delay:.26s}.d4{transition-delay:.34s}
+ 
+@media(max-width:1024px){.fg{grid-template-columns:repeat(2,1fr)}.sw::after{display:none}.sw{grid-template-columns:repeat(2,1fr);gap:32px}.ft{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.hero-in{grid-template-columns:1fr}.hw{order:-1}.c2{display:none}.pg{grid-template-columns:1fr}.fg{grid-template-columns:1fr}.sw{grid-template-columns:1fr}.prgrid{grid-template-columns:1fr}.prc.pop{transform:none}.prc.pop:hover{transform:translateY(-4px)}.tg{grid-template-columns:1fr}.ni{grid-template-columns:repeat(2,1fr)}.nav-ul{display:none}.nav-ul.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:rgba(249,247,242,.97);padding:18px clamp(20px,5%,80px);gap:14px;box-shadow:0 8px 24px rgba(44,44,42,.1);backdrop-filter:blur(16px)}.ham{display:flex}.ft{grid-template-columns:1fr;gap:32px}.fbot{flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+ 
+<nav id="nav">
+  <a href="#" class="logo">
+    <div class="lmark">⚡</div>
+    <span class="lname">Freshy<em>Job</em></span>
+  </a>
+  <ul class="nav-ul" id="navUl">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#" class="ncta" onclick="openM();return false;">Try Free →</a></li>
+  </ul>
+  <div class="ham" id="ham" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+ 
+<section class="hero" id="home">
+  <div class="dots"></div>
+  <div class="g1"></div><div class="g2"></div><div class="g3"></div><div class="g4"></div>
+  <div class="hero-in">
+    <div>
+      <div class="pill"><span class="live"></span>AI-Powered · India-First · Free to Start</div>
+      <h1 class="hero-h">Practice Interviews<br>with AI. <span class="ac">Get Hired<br>Faster.</span></h1>
+      <p class="hero-p">FreshyJob gives you unlimited AI mock interviews, instant feedback, and role-specific coaching for HR, Business Analytics, Sales &amp; more — built and priced for Indian students.</p>
+      <div class="ctar">
+        <button class="bc" onclick="openM()">🚀 Join Free Waitlist</button>
+        <a href="#how" class="bo">▶ See How It Works</a>
+      </div>
+      <div class="proof">
+        <div class="pi"><span class="pd"></span>500+ students from 12 colleges</div>
+        <div class="pi"><span class="pd"></span>4.8 / 5 session rating</div>
+        <div class="pi"><span class="pd"></span>3 mock interviews free</div>
+      </div>
+    </div>
+    <div class="hw">
+      <div class="chip c1"><span>🎉</span>Hired at Deloitte!</div>
+      <div class="hcard">
+        <div class="ctop">
+          <div class="aav">🤖</div>
+          <div><div class="ct">AI Interviewer</div><div class="cs">HR Role · Round 2</div></div>
+          <div class="lb"><span class="d"></span>Live Session</div>
+        </div>
+        <div class="mq">"Tell me about a time you handled a conflict in your team. Walk me through using the STAR method."</div>
+        <div class="ma">"During my internship at XYZ, two team members disagreed on project ownership. I facilitated a structured discussion, aligned on shared goals, and documented clear responsibilities. Result: project delivered 2 days early."</div>
+        <div class="sp">
+          <div class="st">⚡ Instant Feedback</div>
+          <div class="sr"><span class="sl">STAR Method</span><div class="sk"><div class="sf" style="width:88%"></div></div><span class="sn">88%</span></div>
+          <div class="sr"><span class="sl">Clarity</span><div class="sk"><div class="sf t" style="width:92%"></div></div><span class="sn">92%</span></div>
+          <div class="sr"><span class="sl">Keywords</span><div class="sk"><div class="sf" style="width:76%"></div></div><span class="sn">76%</span></div>
+        </div>
+      </div>
+      <div class="chip c2"><span>📊</span>Score improved 34%</div>
+    </div>
+  </div>
+</section>
+ 
+<div class="nb">
+  <div class="ni">
+    <div class="rev"><div class="nv">13%</div><div class="nl">Graduate unemployment in India</div></div>
+    <div class="rev d1"><div class="nv">36%</div><div class="nl">IIT Bombay 2024 batch unplaced</div></div>
+    <div class="rev d2"><div class="nv">₹99</div><div class="nl">Unlimited prep per month</div></div>
+    <div class="rev d3"><div class="nv">8+</div><div class="nl">Non-tech roles covered</div></div>
+  </div>
+</div>
+ 
+<section class="blk prob-bg">
+  <div class="si">
+    <div class="eye rev">⚠ The Real Problem</div>
+    <h2 class="sh rev">Why Do Qualified Students<br><span class="co">Still Fail Interviews?</span></h2>
+    <p class="sp2 rev">You've studied for years. You have the degree. But when the interviewer asks "Tell me about yourself" — the words don't come.</p>
+    <div class="pg">
+      <div class="pc rev"><div class="pn">01</div><div class="pname">No Affordable Practice</div><div class="pdesc">Human mentors charge ₹2,000–₹5,000 per session. Students in Tier-2/3 cities have zero access to professional coaching.</div></div>
+      <div class="pc rev d1"><div class="pn">02</div><div class="pname">Tech-Only Platforms</div><div class="pdesc">Pramp, InterviewBit, LeetCode — all built for engineers. Zero support for HR, Business Analytics, Sales, or Operations roles.</div></div>
+      <div class="pc rev d2"><div class="pn">03</div><div class="pname">No India-Specific Content</div><div class="pdesc">Global tools aren't calibrated to Indian hiring patterns, campus placement formats, or regional language preferences.</div></div>
+    </div>
+    <div class="pq rev">
+      <div class="qb"></div>
+      <div class="qt">"Not because you're not good enough. <strong>Because you've never practiced the right way.</strong> FreshyJob changes that — with unlimited, affordable, AI-powered preparation built for the Indian job market."</div>
+    </div>
+  </div>
+</section>
+ 
+<section class="blk feat-bg" id="features">
+  <div class="si">
+    <div class="eye tl rev">✦ Features</div>
+    <h2 class="sh rev">Everything You Need to <span class="te">Ace Your Interview</span></h2>
+    <p class="sp2 rev">One platform. All the tools. Built for the Indian job market.</p>
+    <div class="fg">
+      <div class="fc hf rev"><div class="ftag">Core Feature</div><span class="fi">🎙️</span><div class="fn">AI Mock Interviews</div><div class="fd">Realistic role-specific Q&A powered by GenAI, simulating actual Indian campus placement scenarios with detailed scoring.</div></div>
+      <div class="fc rev d1"><div class="ftag">Free Tier</div><span class="fi">📄</span><div class="fn">Resume Analyser</div><div class="fd">AI scans your resume against the job description and scores your fit with targeted improvement suggestions.</div></div>
+      <div class="fc rev d2"><span class="fi">⚡</span><div class="fn">Instant Feedback</div><div class="fd">Every answer scored on structure, clarity, keywords, and STAR-method adherence — results in seconds.</div></div>
+      <div class="fc rev d3"><span class="fi">🎯</span><div class="fn">Role Prep Packs</div><div class="fd">Curated Q&A banks for HR, BA, Sales, Marketing and Operations — the roles other platforms ignore.</div></div>
+      <div class="fc rev"><span class="fi">📊</span><div class="fn">Progress Dashboard</div><div class="fd">Track improvement across sessions with detailed analytics and performance trend graphs.</div></div>
+      <div class="fc rev d1"><span class="fi">🗣️</span><div class="fn">Communication Coach</div><div class="fd">AI analyses filler words, pacing, and clarity in voice-based answers to sharpen your delivery.</div></div>
+      <div class="fc rev d2"><div class="ftag">Always Free</div><span class="fi">📱</span><div class="fn">WhatsApp Integration</div><div class="fd">Daily practice question and tip delivered right to WhatsApp — zero extra apps required.</div></div>
+      <div class="fc rev d3"><span class="fi">🏆</span><div class="fn">Full Interview Sim</div><div class="fd">Timed 30-minute full-length interview simulation with end-to-end scoring and difficulty levels.</div></div>
+    </div>
+  </div>
+</section>
+ 
+<section class="blk how-bg" id="how">
+  <div class="si">
+    <div class="eye am rev" style="margin:0 auto 16px;display:flex;width:fit-content">↻ How It Works</div>
+    <h2 class="sh rev" style="text-align:center">From Sign-Up to<br><span class="co">Your Dream Offer</span></h2>
+    <p class="sp2 rev" style="text-align:center;margin:0 auto 56px">Four steps. Zero intimidation. Real results.</p>
+    <div class="sw">
+      <div class="step rev"><div class="sc2">1</div><div class="sn2">Sign Up Free</div><div class="sd">No credit card. No commitment. No stress. Start in under 60 seconds.</div></div>
+      <div class="step rev d1"><div class="sc2">2</div><div class="sn2">Choose Your Role</div><div class="sd">HR? Business Analyst? Sales? Pick your domain and experience level.</div></div>
+      <div class="step rev d2"><div class="sc2">3</div><div class="sn2">Practice with AI</div><div class="sd">Answer in text or voice. AI listens, evaluates, and understands context.</div></div>
+      <div class="step rev d3"><div class="sc2">4</div><div class="sn2">Get Feedback Instantly</div><div class="sd">See exactly what to improve. Practice again. Land the offer.</div></div>
+    </div>
+  </div>
+</section>
+ 
+<section class="blk price-bg" id="pricing">
+  <div class="si">
+    <div class="eye pu rev" style="margin:0 auto 16px;display:flex;width:fit-content">◈ Pricing</div>
+    <h2 class="sh rev" style="text-align:center"><span class="co">Priced for Students.</span><br>Not Silicon Valley.</h2>
+    <p class="sp2 rev" style="text-align:center;margin:0 auto 56px">Start free. Upgrade when ready.</p>
+    <div class="prgrid">
+      <div class="prc rev"><div class="ppl">Free Forever</div><div class="pp"><span class="pc2">₹</span>0</div><div class="pper">always free</div><ul class="pfl"><li><span class="ck">✓</span>3 mock interviews / month</li><li><span class="ck">✓</span>1 resume scan / month</li><li><span class="ck">✓</span>1 role prep pack</li><li><span class="ck">✓</span>Basic feedback</li><li><span class="ck">✓</span>WhatsApp daily tips</li><li><span class="cx">✗</span>Progress dashboard</li><li><span class="cx">✗</span>Communication coach</li></ul><a href="#" class="pb pbo" onclick="openM();return false;">Get Started Free</a></div>
+      <div class="prc pop rev d1"><div class="ptag">⭐ Most Popular</div><div class="ppl">Pro</div><div class="pp"><span class="pc2">₹</span>99</div><div class="pper">per month · cancel anytime</div><ul class="pfl"><li><span class="ck">✓</span>Unlimited mock interviews</li><li><span class="ck">✓</span>Unlimited resume scans</li><li><span class="ck">✓</span>All 8 role prep packs</li><li><span class="ck">✓</span>Detailed feedback + tips</li><li><span class="ck">✓</span>WhatsApp daily tips</li><li><span class="ck">✓</span>Full analytics dashboard</li><li><span class="ck">✓</span>Communication coach</li></ul><a href="#" class="pb pbc" onclick="openM();return false;">Start Pro — ₹99/mo →</a></div>
+      <div class="prc rev d2"><div class="ppl">Campus</div><div class="pp"><span class="pc2">₹</span>599</div><div class="pper">per college / month</div><ul class="pfl"><li><span class="ck">✓</span>Unlimited for all students</li><li><span class="ck">✓</span>Unlimited resume scans</li><li><span class="ck">✓</span>All 8 role packs</li><li><span class="ck">✓</span>Admin placement dashboard</li><li><span class="ck">✓</span>WhatsApp + placement alerts</li><li><span class="ck">✓</span>Priority support</li><li><span class="ck">✓</span>Dedicated account manager</li></ul><a href="mailto:hello@freshyjob.in" class="pb pbo">Contact for Campus</a></div>
+    </div>
+  </div>
+</section>
+ 
+<section class="blk testi-bg" id="reviews">
+  <div class="si">
+    <div class="eye rev">💬 Student Stories</div>
+    <h2 class="sh rev">Real Students. <span class="co">Real Results.</span></h2>
+    <p class="sp2 rev">Hear from students who cracked their dream placements with FreshyJob.</p>
+    <div class="tg">
+      <div class="tc rev"><div class="tqm">"</div><div class="ts">★★★★★</div><p class="tt">"I had no idea what HR interviews actually expected. FreshyJob helped me understand the STAR method and gave me brutally honest feedback. I cracked Deloitte in 3 weeks."</p><div class="ta"><div class="tav">P</div><div><div class="tn">Priya S.</div><div class="tr">MBA Graduate · Indore</div></div></div></div>
+      <div class="tc rev d1"><div class="tqm">"</div><div class="ts">★★★★★</div><p class="tt">"The feedback was incredibly helpful. I finally know what I was doing wrong in every answer. My confidence went from 3/10 to 8/10 in just two weeks of practice."</p><div class="ta"><div class="tav" style="background:var(--teal)">A</div><div><div class="tn">Arjun K.</div><div class="tr">BBA Final Year · Patna</div></div></div></div>
+      <div class="tc rev d2"><div class="tqm">"</div><div class="ts">★★★★★</div><p class="tt">"₹99 for unlimited practice is a no-brainer. No other platform covers Sales roles with this depth. I recommend FreshyJob to every fresher in my college group."</p><div class="ta"><div class="tav" style="background:var(--amber-deep)">N</div><div><div class="tn">Neha T.</div><div class="tr">Fresh Graduate · Kanpur</div></div></div></div>
+    </div>
+  </div>
+</section>
+ 
+<div class="ctabl">
+  <div class="ctain">
+    <h2 class="ctah">Your Dream Job Is<br>One <em>Interview</em> Away.</h2>
+    <p class="ctap">Stop wishing you had practiced more. Start practicing now — for free.</p>
+    <div class="ctabs">
+      <button class="bw" onclick="openM()">🚀 Join the Waitlist Free →</button>
+      <a href="#features" class="bg2">Explore Features</a>
+    </div>
+  </div>
+</div>
+ 
+<footer>
+  <div class="fi2">
+    <div class="ft">
+      <div class="fb">
+        <a href="#" class="logo"><div class="lmark">⚡</div><span class="lname" style="color:#fff">Freshy<em>Job</em></span></a>
+        <p>AI-powered interview prep for Indian students. Crack interviews. Build confidence. Get hired.</p>
+        <div class="fso"><a>in</a><a>ig</a><a>yt</a><a>tw</a></div>
+      </div>
+      <div class="fc2"><h5>Product</h5><ul><li><a href="#">Features</a></li><li><a href="#">Pricing</a></li><li><a href="#">How It Works</a></li><li><a href="#">Role Packs</a></li><li><a href="#">Campus Plan</a></li></ul></div>
+      <div class="fc2"><h5>Resources</h5><ul><li><a href="#">Interview Tips</a></li><li><a href="#">Resume Templates</a></li><li><a href="#">Role Guides</a></li><li><a href="#">Student Stories</a></li><li><a href="#">Career Advice</a></li></ul></div>
+      <div class="fc2"><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Contact</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Use</a></li><li><a href="mailto:hello@freshyjob.in">hello@freshyjob.in</a></li></ul></div>
+    </div>
+    <div class="fbot">
+      <span>© 2026 FreshyJob · Made with <span class="fh">♥</span> for Indian students</span>
+      <span>Crack Interviews. Build Confidence. Get Hired.</span>
+    </div>
+  </div>
+</footer>
+ 
+<div class="mov" id="mov" onclick="closeOv(event)">
+  <div class="mb">
+    <button class="mc" onclick="closeM()">×</button>
+    <div id="mfm">
+      <div class="mh">Join the Free Waitlist 🚀</div>
+      <p class="mp">Be among the first 500 students to get free Pro access at launch.</p>
+      <div class="mf">
+        <input class="mfi" id="mn" type="text" placeholder="Your full name" />
+        <input class="mfi" id="me" type="email" placeholder="Email address" />
+        <input class="mfi" id="mc2" type="text" placeholder="Your college / university" />
+        <button class="bc" style="justify-content:center;padding:14px" onclick="subWL()">Join Waitlist — It's Free →</button>
+      </div>
+      <p class="mn">🔒 No spam. No credit card. Unsubscribe anytime.</p>
+    </div>
+    <div class="ms" id="msc">
+      <div class="msi">🎉</div>
+      <div class="msh">You're on the list!</div>
+      <p class="msp">Welcome to FreshyJob! We'll notify you the moment we launch.</p>
+    </div>
+  </div>
+</div>
+ 
+<script>
+window.addEventListener('scroll',()=>{ document.getElementById('nav').classList.toggle('sc',scrollY>20); });
+function toggleNav(){ document.getElementById('navUl').classList.toggle('open'); }
+const rv=document.querySelectorAll('.rev');
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');ro.unobserve(x.target);}});},{threshold:.1});
+rv.forEach(el=>ro.observe(el));
+function openM(){ document.getElementById('mov').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeM(){ document.getElementById('mov').classList.remove('open'); document.body.style.overflow=''; }
+function closeOv(e){ if(e.target===document.getElementById('mov')) closeM(); }
+function subWL(){
+  if(!document.getElementById('mn').value.trim()||!document.getElementById('me').value.trim()){alert('Please enter your name and email.');return;}
+  document.getElementById('mfm').style.display='none';
+  document.getElementById('msc').style.display='block';
+}
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.querySelectorAll('.sf').forEach(b=>{const w=b.style.width;b.style.width='0';requestAnimationFrame(()=>{b.style.width=w;});});
+  },700);
+});
+</script>
+</body>
+</html>
